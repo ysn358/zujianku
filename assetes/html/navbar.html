@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../carryQueryUI/carryQuery.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      .navbar {
+        /* 将要删除的 */
+        overflow: hidden;
+      }
+      .navbar-default{
+        background-color: rgba(240, 235, 235, 0.966);
+      }
+      .navbar-header {
+        float: left;
+        line-height: 3.125rem;
+      }
+      .navbar-header::after {
+        content: "";
+        clear: both;
+        visibility: hidden;
+        display: block;
+      }
+      .navbar > .navbar-header > .navbar-logo {
+        float: left;
+      }
+      .navbar > .navbar-header > .navbar-logo::after {
+        content: "";
+        clear: both;
+        visibility: hidden;
+        display: block;
+      }
+      .collapse {
+        display: none;
+      }
+      .navbar > .navbar-header a {
+        font-size: 25px;
+        padding: 7px;
+      }
+      
+      /* 
+      默认：
+      html  width:100%  =  100rem  
+      */
+      .navbar .navbar-nav {
+        float: left;
+        min-width: 30rem;
+        width: 30rem;
+      }
+      .navbar .navbar-nav::after {
+        content: "";
+        clear: both;
+        visibility: hidden;
+        display: block;
+      }
+      .navbar > .navbar-collapse > .navbar-nav > .nav {
+        margin: 0;
+      }
+      .navbar > .navbar-collapse > .navbar-nav > .nav a {
+        line-height: 1.6rem;
+      }
+      .navbar-form {
+        float: left;
+        padding: 10px 0px;
+      }
+      .navbar-form::after {
+        content: "";
+        clear: both;
+        visibility: hidden;
+        display: block;
+      }
+      .navbar-form > input {
+      }
+      .navbar-form-control {
+        border: 1px solid #ccc;
+        padding-left: 5px;
+        background-color: #ccc;
+      }
+      .navbar-form-control > input {
+        background-color: #ccc;
+        padding: 0px 10px;
+      }
+      .navbar-form-control > .btn {
+        /* float: left; */
+        margin-left: -5px;
+      }
+      .navbar > .navbar-collapse > .navbar-right > .nav {
+        margin: 0;
+      }
+      .navbar > .navbar-collapse > .navbar-right {
+        float: right;
+      }
+      .navbar > .navbar-collapse > .navbar-right::after {
+        content: "";
+        clear: both;
+        /* 隐藏；但是；占据位置 */
+        /* visibility: hidden; */
+        display: block;
+      }
+
+      /* 状态 */
+      .navbar-info{
+          background-color: #387af5;
+      }
+     .navbar-info .navbar-form-control {
+        border: 1px solid #ffffff;
+        padding-left: 5px;
+        background-color: #ffffff;
+      }
+      .navbar-info .navbar-form-control > input {
+        background-color: #ffffff;
+        padding: 0px 10px;
+      }
+     .navbar-primary{
+          background-color: #a038f5;
+      }
+      .navbar-primary .navbar-form-control {
+        border: 1px solid #ffffff;
+        padding-left: 5px;
+        background-color: #ffffff;
+      }
+      .navbar-primary .navbar-form-control > input {
+        background-color: #ffffff;
+        padding: 0px 10px;
+      }
+
+      .navbar-inverse{
+          background-color: #594f80;
+      }
+
+      .navbar-inverse .navbar-form-control {
+        border: 1px solid #ffffff;
+        padding-left: 5px;
+        background-color: #ffffff; 
+      }
+      .navbar-inverse .navbar-form-control > input {
+        background-color: #ffffff;
+        padding: 0px 10px;
+      }
+      .navbar-info a,.navbar-primary a,.navbar-inverse a{
+          color: #ffffff !important;
+      }
+
+      /* 
+    @media 表示媒体查询  
+    svreen  表示媒体设备   手机 平白  电脑  
+    and  条件  且  
+    max-width:768  查询条件  当屏幕尺寸 小于等于 768px 时候 才可以执行以下样式
+      */
+      @media screen and (max-width: 798px) {
+            .navbar-header .collapse {
+                display: block;
+            }
+
+            .navbar-collapse{
+                display: none;
+            }
+            .navbar-header {
+                width: 100%;
+            }
+
+            .navbar-header .navbar-toggle {
+                float: right;
+                width: 32px;
+                height: 30px;
+                position: relative;
+                border: 1px solid #ccc;
+                top: 10px;
+                right: 10px;
+            }
+
+            .navbar-header .navbar-collapse::after {
+                content: '';
+                visibility: hidden;
+                display: block;
+                clear: both;
+            }
+
+            .navbar .navbar-collapse {
+                position: relative;
+            }
+
+            .navbar-header .navbar-toggle .icon-line {
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                position: absolute;
+                background-color: #333333;
+                left: 3px;
+                top: 6px;
+            }
+
+            .navbar-header .navbar-toggle .icon-line::before {
+                content: '';
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                position: absolute;
+                background-color: #333333;
+                top: 8px;
+                left: 0px;
+            }
+
+            .navbar-header .navbar-toggle .icon-line::after {
+                content: '';
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                background-color: #333333;
+                position: absolute;
+                top: 16px;
+                left: 0;
+            }
+            .navbar-collapse >.navbar-nav>.nav{
+                border-top: 1px solid #ccc;
+            }
+            .navbar-collapse .nav>li{
+                width: 100%;
+            }
+            .navbar-collapse,.navbar-right{
+                width: 100%;
+            }
+
+            .navbar-collapse>.navbar-form{
+                margin-left: 20px;
+            }
+            
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-primary">
+      <!-- 移动端顶部 -->
+      <div class="navbar-header">
+        <!-- 点击Logo 进入首页 -->
+        <div class="navbar-logo"><a href="#">Logo</a></div>
+        <div class="navbar-toggle collapse">
+          <span class="icon-line"></span>
+          <!-- <span class="icon-line"></span>
+          <span class="icon-line"></span> -->
+        </div>
+      </div>
+
+      <div class="navbar-collapse">
+        <div class="navbar-nav">
+          <ul class="nav">
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <!-- <li>
+                <a href="#" class="dropdown-toggle">下拉导航</a>
+                ul.dropdown>li*3
+            </li> -->
+          </ul>
+        </div>
+
+        <form class="navbar-form">
+          <div class="navbar-form-control">
+            <input type="text" class="form-control" />
+            <button class="btn">搜索</button>
+          </div>
+        </form>
+        <div class="navbar-right">
+          <ul class="nav">
+            <li><a href="#">login</a></li>
+            <li><a href="#">resigi</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+   
+  </body>
+</html>
+<!-- 
+1: 独立写页面；默认样式就是；html 初始化的样式
+2： 对于组件库的样式；复用组件；默认样式 是组件库中的默认样式
+3；通过不同类名 更高的权重实现组件样式
+
+注意： 只要以后写浮动；直接用伪类清楚浮动
+ -->
